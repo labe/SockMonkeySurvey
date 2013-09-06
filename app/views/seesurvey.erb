@@ -1,0 +1,21 @@
+<div class="container">
+Title: <h1> <%= @survey.title %> </h1>
+<br>
+Question: <h3> <%= @questions.first.title %> </h3>
+<br>
+<form action='post' method='/'>
+Answers: <br>
+
+<%@answers.each do |answer|%>
+<label>
+  <input type="radio" name="answer" value="<%= answer.title %>">
+  <%= answer.title %>
+</label>
+<% end %>
+
+<br>
+
+
+  <input type="submit" name="Go home!">
+</form>
+</div>
