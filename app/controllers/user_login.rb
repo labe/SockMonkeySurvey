@@ -29,7 +29,7 @@ get '/new_account' do
 end
 
 post '/new_account' do  
-p "The params are: "params
+
   user = User.create(params)
   p user.valid?
   p "*" * 99
