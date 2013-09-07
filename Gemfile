@@ -14,8 +14,11 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
+gem 'bcrypt-ruby'
 
 gem 'shotgun'
+
+
 
 group :test do
   gem 'faker'
