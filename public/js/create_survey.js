@@ -7,12 +7,45 @@ $(document).ready(function(){
       url: this.action,
       type: this.method,
       data: $(this).serialize()
-    }).done(function(server_response){ //server_response returns whatever the view is from my route (in this case, at least); whatever the route returns gets put into this variable
+    }).done(function(server_response){ 
       console.log('no errors..')
       $('#survey_title').hide();
-      $('#survey_form').append(server_response);
+      $('.appender').append(server_response);
     }).fail(function(){
       console.log("error yo");
+    });
+  });
+
+//can I make 2 AJAX calls? or do I need to make a separate file? This is not appending the way I thought it would
+
+// "input[value='add this question']"
+  $('.appender').on('submit', "#question_form", function(e){
+    e.preventDefault();
+    console.log('we made it to the second click!');
+    $.ajax({
+      url: this.action,
+      type: this.method,
+      data: $(this).serialize()
+    }).done(function(server_response){
+      console.log('yay! all done!');
+      $('.appender').append(server_response);
+    }).fail(function(){
+      console.log("second ajax call; error");
+    });
+  });
+
+  $('.appender').on('keypress', "#number_of_answers", function(e){
+    e.preventDefault();
+    console.log('we made it to the second click!');
+    $.ajax({
+      url: this.action,
+      type: this.method,
+      data: $(this).serialize()
+    }).done(function(server_response){
+      console.log('yay! all done!');
+      $('.appender').append(server_response);
+    }).fail(function(){
+      console.log("second ajax call; error");
     });
   });
 });

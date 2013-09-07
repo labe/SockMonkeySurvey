@@ -11,12 +11,31 @@ post '/create' do #when we want multiple questions/answers, we will need ':id/cr
   # redirect "/seesurvey/#{survey.id}"
 end
 
-get "/seesurvey/:survey_id" do
+post '/question_new' do
+  
+  @question = Question.create( title: params[:title])
+  # need to relate to survey_id
 
-  @survey = Survey.find(params[:survey_id])
-  @questions = @survey.questions
-  @answers = @questions.first.answers
+  erb :_answer_form, layout: false
+end
 
-erb :seesurvey
+post '/answer_new' do
+
+  @answer_count = params[:quantity].to_i
+  
+
+  erb :_answer_popup, layout: false
+end
+
+get '/seesurvey' do
+
+
+  erb :seesurvey
+end
+
+post '/seesurvey' do
+#store answers here!!
+
+ redirect '/seesurvey'
 end
 
