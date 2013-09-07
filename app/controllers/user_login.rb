@@ -47,15 +47,7 @@ post '/new_account' do
     erb :login
   end
 
-  # @user = User.new(params)
-  # p @user
-  # # user.username = params[:username]
-  # # user.password = params[:password]
-  # if @user.save
-  #   redirect "/dashboard"
-  # else
-  #   "errors"
-  # end
+
 end
 
 get '/logout' do
