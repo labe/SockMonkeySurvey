@@ -1,0 +1,7 @@
+<form method='post' action='/seesurvey'>
+  <% @answer_count.times do %>
+  <input type='text' placeholder='possible answer' name='answer_choices'>
+  <br>
+  <% end %>
+  <input type='submit' value="add these answers">
+</form>

@@ -1,0 +1,10 @@
+<div>
+  Question: <%= @question.title %>
+  <br>
+  How many answers should there be? 
+  <form id='number_of_answers' method='post' action='/answer_new'>
+    <input type='number' name="quantity" min="1" max="5">
+    <br>
+    (Press enter to continue)
+  </form>
+  <div>
