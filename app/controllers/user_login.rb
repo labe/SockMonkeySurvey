@@ -56,6 +56,7 @@ get '/logout' do
 end
 
 get '/dashboard' do
+  @surveys = Survey.all
   if current_user
     erb :dashboard
   else

@@ -3,7 +3,7 @@
 <center><strong>Dashboard</strong></center>
 
 
-<center><form method='post' action='/create'>
+<center><form method='get' action='/create'>
 	<input type='submit' value='Create Survey'>
 
 </form></center>
@@ -12,8 +12,9 @@
 <!-- turn list below into links -->
 
 
-<% Survey.all.each do |survey| %>
+<% @surveys.each do |survey| %>
 <p><%= survey.title %></p>
 <% end %>
 
 </div>
+
