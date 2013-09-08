@@ -24,47 +24,46 @@ post '/question_new' do
   p params
   @question = Question.create(title: params[:title], survey_id: params[:survey_id])
 
-  redirect '/question/#{@question.id}/answer/new'
+  redirect to("/question/#{@question.id}/answer/new")
 end
 
 get '/question/:question_id/answer/new' do
 
   @question= Question.find_by_id(params[:question_id])
 
-  erb :_answer_form, layout: false
+  erb :_answer_popup, layout: false
 end
 
 post '/answer_new' do
 
   @question= Question.find_by_id(params[:question_id])
 
-  @answer_count = params[:quantity].to_i
-
-  redirect '/question/#{@question.id}/answer/create'
+  redirect "/question/#{@question.id}/answer/create"
 end
 
 get '/question/:question_id/answer/create' do
   
   @question= Question.find_by_id(params[:question_id])
 
-  erb :_answer_popup, layout: false
+  erb :seesurvey
 end
 
 post '/seesurvey' do
 
-  @answer_choices = params[:answer_choices]
-  p "*" * 60
-  p @answer_choices
+# what is a better way to do this??? can we use nested arrays?
+  Answer.create(title: params[:answer_choice1], question_id: params[:question_id])
+  Answer.create(title: params[:answer_choice2], question_id: params[:question_id])
+  Answer.create(title: params[:answer_choice3], question_id: params[:question_id])
 
-  @answer_choices.each do |answer|
-    p "EACH ANSWER OMG IT WORKED"
-    p Answer.create(title: params[:answer_choice], question_id: params[:question_id])
-  end
 
- redirect '/seesurvey/#{@answers}'
+ redirect "/seesurvey"
 end
 
 get '/seesurvey' do
+
+  @surveys= Survey.all
+  @questions= Question.all
+  @answers= Answer.all
 
 
   erb :seesurvey

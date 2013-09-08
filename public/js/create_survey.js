@@ -27,6 +27,7 @@ $(document).ready(function(){
       data: $(this).serialize()
     }).done(function(server_response){
       console.log('yay! all done!');
+      $('#question_form').hide();
       $('.appender').append(server_response);
     }).fail(function(){
       console.log("second ajax call; error");
