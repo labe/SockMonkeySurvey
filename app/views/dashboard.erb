@@ -1,17 +1,19 @@
-<center><h1>Welcome to Sock Monkey Survey!</h1></center>
+<div class ="container">
+<!-- <center><h1>Welcome to Sock Monkey Survey!</h1></center> -->
 <center><strong>Dashboard</strong></center>
-<br>
 
-<form method='post' action='/create'>
+
+<center><form method='post' action='/create'>
 	<input type='submit' value='Create Survey'>
 
-</form>
+</form></center>
 
 
 <!-- turn list below into links -->
 
-<div class='container'>
+
 <% Survey.all.each do |survey| %>
 <p><%= survey.title %></p>
 <% end %>
+
 </div>
