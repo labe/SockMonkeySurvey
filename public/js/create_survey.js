@@ -16,12 +16,11 @@ $(document).ready(function(){
     });
   });
 
-//can I make 2 AJAX calls? or do I need to make a separate file? This is not appending the way I thought it would
-
 // "input[value='add this question']"
   $('.appender').on('submit', "#question_form", function(e){
     e.preventDefault();
     console.log('we made it to the second click!');
+    // breaking here!
     $.ajax({
       url: this.action,
       type: this.method,

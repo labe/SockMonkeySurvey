@@ -1,7 +1,9 @@
 <form method='post' action='/seesurvey'>
   <% @answer_count.times do %>
-  <input type='text' placeholder='possible answer' name='answer_choices'>
+  <input type='text' placeholder='possible answer' name='answer_choice[]'>
   <br>
   <% end %>
+  <% @question %> <!-- do we need this here? -->
+  <input type='hidden' name="question_id" value='<%= @question.id %>"
   <input type='submit' value="add these answers">
 </form>
