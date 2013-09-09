@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 
   validate :username_valid?, :password_valid?
-
+  
   has_many :answers
   has_many :surveys
 

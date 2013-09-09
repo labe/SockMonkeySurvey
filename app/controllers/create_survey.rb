@@ -76,4 +76,27 @@ get '/seesurvey/:survey_id' do
 end
 
 
+post '/stats' do
 
+answer= Answer.find_by_title(params[:title])
+answer_user = AnswerUser.create(user_id: session[:user_id], answer_id: answer.id)
+
+# answer_user = AnswerUser.create
+# answer = Answer.find_by_title(params[:title])
+# user=  User.find_by_id(session[:user_id])
+
+# user.answer_users<<answer_user
+# answer.answer_users<<answer_user
+
+redirect '/stats'
+end
+
+
+
+get '/stats' do
+
+@answer_user = AnswerUser.last
+@answer_chosen = Answer.find_by_id(@answer_user.answer_id)
+
+erb :stats
+end

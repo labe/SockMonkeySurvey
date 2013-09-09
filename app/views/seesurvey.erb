@@ -3,14 +3,16 @@
   <br> 
   <h3> <%= @question.title %> </h3>
   <br>
+  <form method='post' action='/stats'>
     <label>
-      <input type="radio" name="answer" value="<%= @answer1.title %>">
+      <input type="radio" name="title" value="<%= @answer1.title %>">
       <%= @answer1.title %>
-      <input type="radio" name="answer" value="<%= @answer2.title %>">
+      <input type="radio" name="title" value="<%= @answer2.title %>">
       <%= @answer2.title %>
-      <input type="radio" name="answer" value="<%= @answer3.title %>">
+      <input type="radio" name="title" value="<%= @answer3.title %>">
       <%= @answer3.title %>
     </label>
     <br>
-    <input type="submit" name="Go home!">
+    <input type="submit">
+  </form>
 </div>
