@@ -20,23 +20,23 @@
 </head>
 <body>
 
-   <div class="header">
-    <div id = "image"><img src="monkey.png" alt="monkey" ></div>
-   
-        <div id = "image"><img src="log_v1.png" alt="log" ></div>
+ <div class="header">
+  <div id = "image"><img src="monkey.png" alt="monkey" ></div>
+  
+  <div id = "image"><img src="log_v1.png" alt="log" ></div>
 
-    <h3><a href="/dashboard">Home</a></h3>
+  <h3><a href="/dashboard">Home</a></h3>
 
-    <% if current_user %>
-      <h3><a href='/logout'>Logout</a></h3>
-     <center> <h4>Welcome back!: <br><br><%= current_user.username %></a></h4></center>
-    <% else %>
-      <h3><a href="/login">Login</a></h3>
-    <% end %>
-  </div>
+  <% if current_user %>
+  <h3><a href='/logout'>Logout</a></h3>
+  <center> <h4>Welcome back!: <br><br><%= current_user.username %></a></h4></center>
+  <% else %>
+  <h3><a href="/login">Login</a></h3>
+  <% end %>
+</div>
 
-  <%= yield %>
-  <div class ="footer">
-  </div>
+<%= yield %>
+<div class ="footer">
+</div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 
 
 <% @surveys.each do |survey| %>
-<p><a href='<%= survey.title %>'> <%= survey.title %></a> </p>
+<p><a href='/seesurvey/<%= survey.id%>'> <%= survey.title %></a> </p>
 <% end %>
 
 </div>

@@ -1,11 +1,11 @@
 
 <div>
   Survey Title: <%= @survey.title %>
-<form id= "question_form" method='post' action='/question_new'>
-  Question: <input type="text" name="title">
-  <input type='submit' value="add this question">
-  <input type="hidden" name="survey_id" value='<%= @survey.id %>'>
-  <br>
-</form>
+  <form id= "question_form" method='post' action='/question_new'>
+    Question: <input type="text" name="title">
+    <input type='submit' value="add this question">
+    <input type="hidden" name="survey_id" value='<%= @survey.id %>'>
+    <br>
+  </form>
 
 </div>

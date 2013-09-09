@@ -1,10 +1,10 @@
-require 'Faker'
-class SurveyImporter
+# require 'Faker'
+# class SurveyImporter
 
-	def self.import
-		Survey.create(title: Faker::Lorem.sentence)
-	end
+# 	def self.import
+# 		Survey.create(title: Faker::Lorem.sentence)
+# 	end
 
-end
+# end
 
-5.times{ SurveyImporter.import }
+# 5.times{ SurveyImporter.import }

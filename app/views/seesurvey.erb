@@ -1,24 +1,16 @@
 <div class="container">
-<% @surveys.each do |survey| %> 
-<h1><%= survey.title %></h1>
-<% end %>
-<br>
-<% @questions.each do |question| %> 
- <h3><%= question.title %> </h3>
- <% end %>
-<br>
-<form action='post' method='/'>
-
-<% @answers.each do |answer|%>
-<label>
-  <input type="radio" name="answer" value="<%= answer.title %>">
-  <%= answer.title %>
-</label>
-<% end %>
-
-<br>
-
-
-  <input type="submit" name="Go home!">
-</form>
+  <h1><%= @survey.title %></h1>
+  <br> 
+  <h3> <%= @question.title %> </h3>
+  <br>
+    <label>
+      <input type="radio" name="answer" value="<%= @answer1.title %>">
+      <%= @answer1.title %>
+      <input type="radio" name="answer" value="<%= @answer2.title %>">
+      <%= @answer2.title %>
+      <input type="radio" name="answer" value="<%= @answer3.title %>">
+      <%= @answer3.title %>
+    </label>
+    <br>
+    <input type="submit" name="Go home!">
 </div>
