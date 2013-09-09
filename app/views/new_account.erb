@@ -1,7 +1,14 @@
 
 <div class ="container">
- <form action='/new_account' method='POST'>
-  <h3>Create your account:</h3>
+    <% if @errors %>
+  <% @errors.each do |error| %>
+    <center><h1><span class="error"><%= error %></span></h1></center>
+  <% end %>
+<% end %>
+   <form action='/new_account' method='POST'>
+
+  
+    <h3>Create your account:</h3>
 
   
   <label>Username: </label>
@@ -15,3 +22,5 @@
 
 </form>
 </div>
+
+

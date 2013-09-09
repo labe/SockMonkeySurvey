@@ -42,9 +42,16 @@ post '/new_account' do
     session[:user_id] = user.id
     redirect '/dashboard'
   else
-    p user.valid?
-    @errors = user.errors.messages
-    erb :login
+    # p user.valid?
+
+    @errors = user.errors.full_messages
+    # @bad_errors = user.errors #this can also work 
+    # p @bad_errors
+    # p "Gaby!!!!!!!!!!!"
+    # p @bad_errors.full_messages #this can also work 
+    # p "Y" * 60
+    # p @errors
+    erb :new_account
   end
 
 

@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
- 
-  validates :username, :presence => true, 
-                    :uniqueness => true
-  validates :password, :presence => true
+
+
+  validate :username_valid?, :password_valid?
 
   has_many :answers
   has_many :surveys
@@ -38,4 +37,19 @@ class User < ActiveRecord::Base
     (user && user.password == password) ? user : nil
   end
   
+#==> custom error methods>
+
+  def username_valid?
+    if username == ""
+      errors.add(:username, " can't be empty! ")
+    end
+  end
+
+def password_valid?
+  if password == ""
+    errors.add(:password, " can't be empty! ")
+  end
+
+end
+
 end
