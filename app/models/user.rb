@@ -2,11 +2,14 @@ class User < ActiveRecord::Base
 
 
   validate :username_valid?, :password_valid?
+  #AR has a built in validation option to customize the :message (and check for presence_of). use those instead of creating validation methods.
   
-  has_many :answers
-  has_many :surveys
+  has_many :answers #has this through the answer_user join-- need to establish the join association
+  has_many :surveys #these are the surveys a user is the creator for. look into the :source option and alias this to :created_surveys
 
-  include BCrypt   #the following code is copy and pasted from the bcrypt website
+  #missing join associations for having many surveys taken. use a :taken_surveys alias
+
+  include BCrypt
 
   def password 
     @password ||= Password.new(password_hash)

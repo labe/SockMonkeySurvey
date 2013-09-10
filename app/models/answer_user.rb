@@ -1,3 +1,3 @@
 class AnswerUser < ActiveRecord::Base
-  # Remember to create a migration!
+	#need join associations
 end

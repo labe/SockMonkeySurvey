@@ -1,3 +1,3 @@
 class SurveyUser < ActiveRecord::Base
-  # Remember to create a migration!
+	#needs associations
 end

@@ -2,13 +2,11 @@ get '/' do
   erb :login
 end
 
-get '/login' do
-  # Look in app/views/index.erb
+get '/login' do #redundant route, this does exactly the same thing as '/'
   erb :login
 end
 
 post '/login' do
-
   if user = User.authenticate(params[:username], params[:password])
     session[:user_id] = user.id
     redirect '/dashboard'
@@ -16,11 +14,6 @@ post '/login' do
     @errors = user.errors.messages
     erb :login
   end
-
-
-  # @user = User.find_by_username(params[:username])
-  # redirect "/dashboard"
-
 end
 
 get '/new_account' do
@@ -39,6 +32,7 @@ post '/new_account' do
     p user.valid?
     user.save
     p "Gaby, here the user is saved!"
+    #refactor 30-34 to: if user.save
     session[:user_id] = user.id
     redirect '/dashboard'
   else
@@ -62,7 +56,7 @@ get '/logout' do
   redirect '/'
 end
 
-get '/dashboard' do
+get '/dashboard' do # "dashboard" is usually a thing that's personalized for/unique to a user, like a profile. This is a page that displays all the available surveys and should be renamed appropriately, e.g. '/surveys/all', and moved into the survey controller
   @surveys = Survey.all
   if current_user
     erb :dashboard
